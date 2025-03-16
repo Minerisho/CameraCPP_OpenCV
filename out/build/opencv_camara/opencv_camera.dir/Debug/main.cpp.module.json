@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "opencv_camera.dir\\Debug\\main.obj",
+            "outputs": [
+                "C:\\Software\\CPP\\Imagenes_Aux\\out\\build\\opencv_camara\\opencv_camera.dir\\Debug\\vc143.pdb",
+                "opencv_camera.dir\\Debug\\"
+            ],
+            "requires": []
+        }
+    ]
+}

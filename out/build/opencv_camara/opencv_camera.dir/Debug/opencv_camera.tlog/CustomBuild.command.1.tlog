@@ -1,0 +1,10 @@
+^C:\SOFTWARE\CPP\IMAGENES_AUX\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Software/CPP/Imagenes_Aux -BC:/Software/CPP/Imagenes_Aux/out/build/opencv_camara --check-stamp-file C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
