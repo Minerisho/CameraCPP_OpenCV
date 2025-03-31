@@ -1,0 +1,22 @@
+^C:\USERS\MINER\DOCUMENTS\PROYECTOS SOFTWARE\C++\CAMERACPP_OPENCV\BUILD\CMAKEFILES\5FEFD9B5FFBFDF02FE6816E687CF9E2C\AUTOUIC_(CONFIG).STAMP.RULE
+setlocal
+cd "C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build"
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\MINER\DOCUMENTS\PROYECTOS SOFTWARE\C++\CAMERACPP_OPENCV\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV" "-BC:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build" --check-stamp-file "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

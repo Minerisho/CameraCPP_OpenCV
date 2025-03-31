@@ -1,9 +1,0 @@
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/Experimental.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/Nightly.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/Continuous.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/NightlyMemoryCheck.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/opencv_camera.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/PACKAGE.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/RUN_TESTS.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/ALL_BUILD.dir
-C:/Software/CPP/Imagenes_Aux/out/build/opencv_camara/CMakeFiles/ZERO_CHECK.dir
