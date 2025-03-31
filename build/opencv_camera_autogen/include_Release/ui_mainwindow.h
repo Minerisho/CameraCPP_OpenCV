@@ -28,6 +28,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionSeleccionar_carpeta_de_guardado;
+    QAction *actionSeleccionar_camara;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QLabel *videoLabel;
@@ -46,6 +48,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(799, 693);
+        actionSeleccionar_carpeta_de_guardado = new QAction(MainWindow);
+        actionSeleccionar_carpeta_de_guardado->setObjectName("actionSeleccionar_carpeta_de_guardado");
+        actionSeleccionar_camara = new QAction(MainWindow);
+        actionSeleccionar_camara->setObjectName("actionSeleccionar_camara");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -103,6 +109,8 @@ public:
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menuOpciones->menuAction());
+        menuOpciones->addAction(actionSeleccionar_carpeta_de_guardado);
+        menuOpciones->addAction(actionSeleccionar_camara);
 
         retranslateUi(MainWindow);
 
@@ -111,7 +119,9 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Histomerge", nullptr));
+        actionSeleccionar_carpeta_de_guardado->setText(QCoreApplication::translate("MainWindow", "Seleccionar carpeta de guardado", nullptr));
+        actionSeleccionar_camara->setText(QCoreApplication::translate("MainWindow", "Seleccionar c\303\241mara", nullptr));
         videoLabel->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
 #if QT_CONFIG(accessibility)
         recordButton->setAccessibleName(QCoreApplication::translate("MainWindow", "Grabar", nullptr));

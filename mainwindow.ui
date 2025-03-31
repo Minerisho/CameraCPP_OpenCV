@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Histomerge</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -116,10 +116,22 @@
     <property name="title">
      <string>Opciones</string>
     </property>
+    <addaction name="actionSeleccionar_carpeta_de_guardado"/>
+    <addaction name="actionSeleccionar_camara"/>
    </widget>
    <addaction name="menuOpciones"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSeleccionar_carpeta_de_guardado">
+   <property name="text">
+    <string>Seleccionar carpeta de guardado</string>
+   </property>
+  </action>
+  <action name="actionSeleccionar_camara">
+   <property name="text">
+    <string>Seleccionar cámara</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

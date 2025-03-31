@@ -61,12 +61,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::initializeCamera()
 {
-    cap.open(0, cv::CAP_DSHOW);
+    cap.open(0, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
         QMessageBox::critical(this, "Error de Cámara", "No se pudo abrir la cámara web.");
     } else {
-        cap.set(cv::CAP_PROP_FPS, 30.0);
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
 

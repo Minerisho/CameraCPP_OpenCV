@@ -1,64 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_Debug.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_Debug.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\main.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\mainwindow.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\mainwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_Release.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_Release.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_MinSizeRel.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_MinSizeRel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_RelWithDebInfo.cpp">
+    <ClCompile Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\mocs_compilation_RelWithDebInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\mainwindow.h">
+    <ClInclude Include="C:\Software\CPP\CameraCPP_OpenCV\mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\include_Debug\ui_mainwindow.h">
+    <ClInclude Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\include_Debug\ui_mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\include_Release\ui_mainwindow.h">
+    <ClInclude Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\include_Release\ui_mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\include_MinSizeRel\ui_mainwindow.h">
+    <ClInclude Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\include_MinSizeRel\ui_mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\include_RelWithDebInfo\ui_mainwindow.h">
+    <ClInclude Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\include_RelWithDebInfo\ui_mainwindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\CMakeFiles\5fefd9b5ffbfdf02fe6816e687cf9e2c\autouic_(CONFIG).stamp.rule">
+    <CustomBuild Include="C:\Software\CPP\CameraCPP_OpenCV\build\CMakeFiles\90c96ccd01b7a210ce1615b7afba0614\autouic_(CONFIG).stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\CMakeLists.txt" />
+    <CustomBuild Include="C:\Software\CPP\CameraCPP_OpenCV\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\mainwindow.ui" />
-    <None Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_Debug.stamp" />
-    <None Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_Release.stamp" />
-    <None Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_MinSizeRel.stamp" />
-    <None Include="C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_RelWithDebInfo.stamp" />
+    <None Include="C:\Software\CPP\CameraCPP_OpenCV\mainwindow.ui" />
+    <None Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_Debug.stamp" />
+    <None Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_Release.stamp" />
+    <None Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_MinSizeRel.stamp" />
+    <None Include="C:\Software\CPP\CameraCPP_OpenCV\build\opencv_camera_autogen\autouic_RelWithDebInfo.stamp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{9DE64E22-7C4F-3BBF-8E5A-C00A2211C784}</UniqueIdentifier>
+      <UniqueIdentifier>{CF64AF9A-1E4E-32C1-9735-93C282B9EFD3}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{F1A88E4B-AA39-3FCB-A835-31B69132C47E}</UniqueIdentifier>
+      <UniqueIdentifier>{D1167748-8918-352D-A7AC-73A518477384}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{D2AD9C4E-F38B-3ABA-92F7-F916D0860341}</UniqueIdentifier>
+      <UniqueIdentifier>{FF3E9A2A-EACB-39D8-9362-E4EA8A66FD73}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

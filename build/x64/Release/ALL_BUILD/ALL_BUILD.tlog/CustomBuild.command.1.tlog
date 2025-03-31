@@ -1,6 +1,6 @@
-^C:\USERS\MINER\DOCUMENTS\PROYECTOS SOFTWARE\C++\CAMERACPP_OPENCV\CMAKELISTS.TXT
+^C:\SOFTWARE\CPP\CAMERACPP_OPENCV\CMAKELISTS.TXT
 setlocal
-"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV" "-BC:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build" --check-stamp-file "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/generate.stamp"
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Software/CPP/CameraCPP_OpenCV -BC:/Software/CPP/CameraCPP_OpenCV/build --check-stamp-file C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
