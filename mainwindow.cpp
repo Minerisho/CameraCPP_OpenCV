@@ -5,35 +5,26 @@
 #include <QFileDialog>
 #include <QDateTime>
 #include <QDir>
+#include <QInputDialog>
 #include <QStandardPaths>
 #include <QApplication>
-
-QString getSavePath(const QString& baseName) {
-    QString appDir = QApplication::applicationDirPath();
-    QDir dir(appDir);
-    dir.cdUp();
-    QString captureDirPath = dir.absoluteFilePath("capturas");
-    QDir captureDir(captureDirPath);
-
-    if (!captureDir.exists()) {
-        if (!captureDir.mkpath(".")) {
-             qWarning() << "Error: No se pudo crear el directorio:" << captureDirPath;
-             return QApplication::applicationDirPath() + "/" + baseName;
-        }
-    }
-    return captureDir.absoluteFilePath(baseName);
-}
-
+#include <QAction>
+#include <QSettings> 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     timer(new QTimer(this)),
-    isRecording(false)
+    isRecording(false),
+    selectedCameraIndex(0)
 {
     ui->setupUi(this);
     ui->videoLabel->setAlignment(Qt::AlignCenter);
+
+    loadSettings(); // Cargar configuración guardada 
+
     connect(timer, &QTimer::timeout, this, &MainWindow::updateFrame);
+
     initializeCamera();
 
     if (cap.isOpened()) {
@@ -59,19 +50,75 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::loadSettings()
+{
+    // Usa nombres únicos para tu organización y aplicación
+    QSettings settings("PredictPath UIS", "Histomerge");
+    // Cargar índice de cámara (si existe, si no, usa el default 0)
+    selectedCameraIndex = settings.value("selectedCameraIndex", 0).toInt();
+    // Cargar ruta de guardado
+    QString loadedPath = settings.value("saveFolderPath").toString();
+    if (!loadedPath.isEmpty() && QDir(loadedPath).exists()) {
+        saveFolderPath = loadedPath;
+        qInfo() << "Carpeta de guardado cargada:" << saveFolderPath;
+    } else {
+        qInfo() << "No se encontró ruta guardada o es inválida. Usando ruta por defecto.";
+        setupDefaultSavePath(); // Establecer ruta por defecto si no hay válida guardada
+    }
+     // Asegurar que la cámara correcta se inicie si se cargó un índice diferente de 0
+     // initializeCamera() se llama después en el constructor de todas formas.
+}
+
+void MainWindow::saveSettings()
+{
+    QSettings settings("HistomergeDev", "HistomergeCameraApp");
+    settings.setValue("selectedCameraIndex", selectedCameraIndex);
+    settings.setValue("saveFolderPath", saveFolderPath);
+     qInfo() << "Configuración guardada.";
+}
+
+
+void MainWindow::setupDefaultSavePath()
+{
+    QString appDir = QApplication::applicationDirPath();
+    QDir dir(appDir);
+    dir.cdUp();
+    saveFolderPath = dir.absoluteFilePath("capturas");
+    QDir captureDir(saveFolderPath);
+
+    if (!captureDir.exists()) {
+        if (!captureDir.mkpath(".")) {
+             qWarning() << "Error: No se pudo crear el directorio por defecto:" << saveFolderPath;
+             saveFolderPath = QApplication::applicationDirPath();
+        }
+    }
+     qInfo() << "Establecida carpeta de guardado por defecto:" << saveFolderPath;
+}
+
+
 void MainWindow::initializeCamera()
 {
-    cap.open(0, cv::CAP_ANY);
+    if(cap.isOpened()){
+        cap.release();
+    }
+    if(timer->isActive()){
+        timer->stop();
+    }
+
+    cap.open(selectedCameraIndex, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
-        QMessageBox::critical(this, "Error de Cámara", "No se pudo abrir la cámara web.");
+        QMessageBox::critical(this, "Error de Cámara", QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
+        ui->recordButton->setEnabled(false);
+        ui->captureButton->setEnabled(false);
+        ui->stopButton->setEnabled(false);
     } else {
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
 
         double actualWidth = cap.get(cv::CAP_PROP_FRAME_WIDTH);
         double actualHeight = cap.get(cv::CAP_PROP_FRAME_HEIGHT);
-        qInfo() << "Resolución solicitada: 1920x1080";
+        qInfo() << "Iniciando cámara índice:" << selectedCameraIndex;
         qInfo() << "Resolución obtenida:" << actualWidth << "x" << actualHeight;
 
         timer->start(30);
@@ -80,26 +127,25 @@ void MainWindow::initializeCamera()
 
 void MainWindow::updateFrame()
 {
+    if (!cap.isOpened()) return;
+
     cap >> frame;
 
     if (frame.empty()) {
-        timer->stop();
-        if (cap.isOpened()) { // Mostrar advertencia solo si la cámara estaba supuestamente abierta
-             QMessageBox::warning(this, "Error de Cámara", "Se perdió la conexión o no se reciben frames.");
-             cap.release(); // Liberar explícitamente si falla la lectura
-        }
-        updateButtonStates();
         return;
     }
-    cv::Mat flippedFrame;
+
+    // Aplicar flip -1 (Horizontal y Vertical) consistentemente
     cv::flip(frame, flippedFrame, -1);
-    cv::Mat frameToDisplay = flippedFrame.clone();
+    // Usar una copia para dibujar si es necesario, si no, podemos usar flippedFrame directamente
+    cv::Mat frameToDisplay = flippedFrame.clone(); // Usamos clone por si dibujamos sobre ella
 
     if (isRecording) {
         cv::circle(frameToDisplay, cv::Point(30, 30), 10, cv::Scalar(0, 0, 255), cv::FILLED);
         cv::putText(frameToDisplay, "REC", cv::Point(50, 37), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 0, 255), 2);
 
         if (writer.isOpened()) {
+            // Escribir el frame FLIPPED al archivo
             writer.write(flippedFrame);
         } else {
              qWarning() << "Error: Intentando escribir con VideoWriter cerrado mientras isRecording es true.";
@@ -108,9 +154,10 @@ void MainWindow::updateFrame()
     }
 
     cv::Mat frameRgb;
+    // Convertir frameToDisplay (que es flippedFrame) a RGB
     cv::cvtColor(frameToDisplay, frameRgb, cv::COLOR_BGR2RGB);
     QImage qtImage(frameRgb.data, frameRgb.cols, frameRgb.rows, frameRgb.step, QImage::Format_RGB888);
-    ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation)); //Ajuste de resolución según pantalla, cambiar a Qt::FastTransformation si da mucho lag
+    ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
 
     updateButtonStates();
 }
@@ -121,12 +168,14 @@ void MainWindow::on_recordButton_clicked()
     if (isRecording || !cap.isOpened()) return;
 
     QString baseName = QString("VID%1.avi").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss"));
-    QString filename = getSavePath(baseName);
+    QDir saveDir(saveFolderPath);
+    QString filename = saveDir.filePath(baseName);
 
-    if (filename.isEmpty()) {
-         QMessageBox::critical(this, "Error de Grabación", "No se pudo determinar la ruta de guardado.");
-         return;
+     if (!saveDir.exists()) {
+        QMessageBox::critical(this, "Error de Grabación", QString("La carpeta de guardado no existe:\n%1").arg(saveFolderPath));
+        return;
     }
+
 
     int frameWidth = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH));
     int frameHeight = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT));
@@ -136,7 +185,7 @@ void MainWindow::on_recordButton_clicked()
     bool opened = writer.open(filename.toStdString(), cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), fps, cv::Size(frameWidth, frameHeight));
 
     if (!opened) {
-        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar").arg(filename));
+        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar:\n%1").arg(filename));
         return;
     }
 
@@ -159,20 +208,23 @@ void MainWindow::on_stopButton_clicked()
 
 void MainWindow::on_captureButton_clicked()
 {
-    if (!cap.isOpened() || frame.empty()) { // Añadida comprobación extra
+    // Usar el miembro flippedFrame que se actualiza en updateFrame
+    if (!cap.isOpened() || flippedFrame.empty()) {
         QMessageBox::warning(this, "Captura", "No hay imagen válida para capturar o la cámara no está abierta.");
         return;
     }
 
     QString baseName = QString("IMG%1.jpg").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss"));
-    QString filename = getSavePath(baseName);
+    QDir saveDir(saveFolderPath);
+    QString filename = saveDir.filePath(baseName);
 
-     if (filename.isEmpty()) {
-         QMessageBox::critical(this, "Error de Captura", "No se pudo determinar la ruta de guardado.");
-         return;
+    if (!saveDir.exists()) {
+        QMessageBox::critical(this, "Error de Captura", QString("La carpeta de guardado no existe:\n%1").arg(saveFolderPath));
+        return;
     }
 
-    bool saved = cv::imwrite(filename.toStdString(), frame);
+    // Guardar el frame FLIPPED como JPG
+    bool saved = cv::imwrite(filename.toStdString(), flippedFrame);
 
     if (saved) {
         qInfo() << "Imagen guardada ->" << filename;
@@ -183,16 +235,64 @@ void MainWindow::on_captureButton_clicked()
 
 void MainWindow::on_exitButton_clicked()
 {
+    // Guardar configuración antes de cerrar (opcional pero buena idea)
+    saveSettings(); // Podrías llamarlo aquí o en un closeEvent
     close();
 }
 
 
 void MainWindow::updateButtonStates()
 {
-    bool cameraIsOpen = cap.isOpened(); // Solo verificar si la cámara está abierta
+    bool cameraIsOpen = cap.isOpened();
+    // Considerar habilitar captura solo si ya llegó el primer frame flippeado?
+    bool frameIsValid = !flippedFrame.empty();
+    bool enableButtons = cameraIsOpen && frameIsValid;
 
-    ui->recordButton->setEnabled(cameraIsOpen && !isRecording);
-    ui->stopButton->setEnabled(cameraIsOpen && isRecording);
-    ui->captureButton->setEnabled(cameraIsOpen); // Habilitar si la cámara está abierta
+    ui->recordButton->setEnabled(enableButtons && !isRecording);
+    ui->stopButton->setEnabled(enableButtons && isRecording);
+    ui->captureButton->setEnabled(enableButtons);
     ui->exitButton->setEnabled(true);
+}
+
+
+void MainWindow::on_actionSeleccionar_carpeta_de_guardado_triggered()
+{
+    QString dir = QFileDialog::getExistingDirectory(this,
+                                                    "Seleccionar Carpeta de Guardado",
+                                                    saveFolderPath,
+                                                    QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
+
+    if (!dir.isEmpty()) {
+        saveFolderPath = dir;
+        qInfo() << "Nueva carpeta de guardado seleccionada:" << saveFolderPath;
+        saveSettings(); // Guardar la nueva ruta inmediatamente
+    }
+}
+
+void MainWindow::on_actionSeleccionar_camara_triggered()
+{
+    bool ok;
+    int newIndex = QInputDialog::getInt(this,
+                                        "Seleccionar Cámara",
+                                        "Índice de Cámara (0, 1, 2...):",
+                                        selectedCameraIndex,
+                                        0,
+                                        10,
+                                        1,
+                                        &ok);
+
+    if (ok && newIndex != selectedCameraIndex) {
+        selectedCameraIndex = newIndex;
+        qInfo() << "Intentando cambiar al índice de cámara:" << selectedCameraIndex;
+        saveSettings(); // Guardar el nuevo índice seleccionado
+        if(isRecording){
+            on_stopButton_clicked();
+        }
+        // Limpiar el frame anterior antes de cambiar cámara
+        frame = cv::Mat();
+        flippedFrame = cv::Mat();
+        ui->videoLabel->clear(); // Limpiar el label visualmente
+        QApplication::processEvents(); // Procesar eventos para que se vea el clear
+        initializeCamera();
+    }
 }
