@@ -130,13 +130,13 @@ void MainWindow::on_recordButton_clicked()
 
     int frameWidth = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH));
     int frameHeight = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT));
-    double fps = cap.get(cv::CAP_PROP_FPS);
-    if (fps <= 0) fps = 30.0;
+    double fps = 15.0;
+    if (fps <= 0) fps = 15.0;
 
     bool opened = writer.open(filename.toStdString(), cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), fps, cv::Size(frameWidth, frameHeight));
 
     if (!opened) {
-        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar:\n%1\nAsegúrate de tener códecs compatibles (ej. MP4V) instalados.").arg(filename));
+        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar").arg(filename));
         return;
     }
 
