@@ -110,7 +110,7 @@ void MainWindow::updateFrame()
     cv::Mat frameRgb;
     cv::cvtColor(frameToDisplay, frameRgb, cv::COLOR_BGR2RGB);
     QImage qtImage(frameRgb.data, frameRgb.cols, frameRgb.rows, frameRgb.step, QImage::Format_RGB888);
-    ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage));
+    ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation)); //Ajuste de resolución según pantalla, cambiar a Qt::FastTransformation si da mucho lag
 
     updateButtonStates();
 }
