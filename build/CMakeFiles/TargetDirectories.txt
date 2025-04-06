@@ -1,3 +1,0 @@
-C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/opencv_camera.dir
-C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/ALL_BUILD.dir
-C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/ZERO_CHECK.dir
