@@ -270,6 +270,6 @@ C:/Software/CPP/CameraCPP_OpenCV/mainwindow.h
  mdp:C:/opencv/build/include/opencv2/video/background_segm.hpp
  mdp:C:/opencv/build/include/opencv2/video/tracking.hpp
  mdp:C:/opencv/build/include/opencv2/videoio.hpp
-C:/Software/CPP/CameraCPP_OpenCV/main.cpp
 C:/Software/CPP/CameraCPP_OpenCV/mainwindow.cpp
  uic:ui_mainwindow.h
+C:/Software/CPP/CameraCPP_OpenCV/main.cpp
