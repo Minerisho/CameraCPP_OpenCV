@@ -2,10 +2,10 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\x64\Release\ZERO_CHECK</FullPath>
+      <FullPath>C:\Software\CPP\CameraCPP_OpenCV\build\x64\Release\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>C:\Users\miner\Documents\Proyectos Software\C++\CameraCPP_OpenCV\build\Release\opencv_camera.exe</FullPath>
+      <FullPath>C:\Software\CPP\CameraCPP_OpenCV\build\Release\opencv_camera.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

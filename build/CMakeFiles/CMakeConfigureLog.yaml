@@ -4,16 +4,16 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:205 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
       The system is: Windows - 10.0.19045 - AMD64
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
@@ -24,9 +24,9 @@ events:
       The output was:
       0
       Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-      Compilaci├│n iniciada a las 30/03/2025 9:53:45 a.┬ám..
+      Compilaci├│n iniciada a las 31/03/2025 12:07:55 p.┬ám..
       
-      Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdC\\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
+      Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdC\\CompilerIdC.vcxproj" en nodo 1 (destinos predeterminados).
       PrepareForBuild:
         Creando directorio "Debug\\".
         La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
@@ -39,7 +39,7 @@ events:
         CMakeCCompilerId.c
       Link:
         C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
-        CompilerIdC.vcxproj -> C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdC\\CompilerIdC.exe
+        CompilerIdC.vcxproj -> C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdC\\CompilerIdC.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
         :VCEnd
@@ -47,13 +47,13 @@ events:
       FinalizeBuildStatus:
         Se eliminar├í el archivo "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
         Aplicando tarea Touch a "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
-      Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdC\\CompilerIdC.vcxproj" (destinos predeterminados).
+      Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdC\\CompilerIdC.vcxproj" (destinos predeterminados).
       
       Compilaci├│n correcta.
           0 Advertencia(s)
           0 Errores
       
-      Tiempo transcurrido 00:00:00.80
+      Tiempo transcurrido 00:00:01.18
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -61,14 +61,14 @@ events:
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
       
       The C compiler identification is MSVC, found in:
-        C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/4.0.0-rc4/CompilerIdC/CompilerIdC.exe
+        C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/3.31.6/CompilerIdC/CompilerIdC.exe
       
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
@@ -79,9 +79,9 @@ events:
       The output was:
       0
       Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-      Compilaci├│n iniciada a las 30/03/2025 9:53:46 a.┬ám..
+      Compilaci├│n iniciada a las 31/03/2025 12:07:57 p.┬ám..
       
-      Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
+      Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" en nodo 1 (destinos predeterminados).
       PrepareForBuild:
         Creando directorio "Debug\\".
         La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
@@ -94,7 +94,7 @@ events:
         CMakeCXXCompilerId.cpp
       Link:
         C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
-        CompilerIdCXX.vcxproj -> C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdCXX\\CompilerIdCXX.exe
+        CompilerIdCXX.vcxproj -> C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdCXX\\CompilerIdCXX.exe
       PostBuildEvent:
         for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
         :VCEnd
@@ -102,13 +102,13 @@ events:
       FinalizeBuildStatus:
         Se eliminar├í el archivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
         Aplicando tarea Touch a "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
-      Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\4.0.0-rc4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
+      Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\3.31.6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos predeterminados).
       
       Compilaci├│n correcta.
           0 Advertencia(s)
           0 Errores
       
-      Tiempo transcurrido 00:00:00.75
+      Tiempo transcurrido 00:00:00.99
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -116,19 +116,19 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
       
       The CXX compiler identification is MSVC, found in:
-        C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/4.0.0-rc4/CompilerIdCXX/CompilerIdCXX.exe
+        C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/3.31.6/CompilerIdCXX/CompilerIdCXX.exe
       
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-cxs6dr"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-cxs6dr"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-m6hk5g"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-m6hk5g"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -137,52 +137,52 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-cxs6dr'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-m6hk5g'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_30398.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b3456.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:47 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:07:59 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cxs6dr\\cmTC_30398.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m6hk5g\\cmTC_b3456.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_30398.dir\\Debug\\".
+          Creando directorio "cmTC_b3456.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cxs6dr\\Debug\\".
-          Creando directorio "cmTC_30398.dir\\Debug\\cmTC_30398.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m6hk5g\\Debug\\".
+          Creando directorio "cmTC_b3456.dir\\Debug\\cmTC_b3456.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_30398.dir\\Debug\\cmTC_30398.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_30398.dir\\Debug\\cmTC_30398.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_b3456.dir\\Debug\\cmTC_b3456.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_b3456.dir\\Debug\\cmTC_b3456.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_30398.dir\\Debug\\\\" /Fd"cmTC_30398.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b3456.dir\\Debug\\\\" /Fd"cmTC_b3456.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_30398.dir\\Debug\\\\" /Fd"cmTC_30398.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b3456.dir\\Debug\\\\" /Fd"cmTC_b3456.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCCompilerABI.c"
           CMakeCCompilerABI.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cxs6dr\\Debug\\cmTC_30398.exe" /INCREMENTAL /ILK:"cmTC_30398.dir\\Debug\\cmTC_30398.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-cxs6dr/Debug/cmTC_30398.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-cxs6dr/Debug/cmTC_30398.lib" /MACHINE:X64  /machine:x64 cmTC_30398.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_30398.vcxproj -> C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cxs6dr\\Debug\\cmTC_30398.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m6hk5g\\Debug\\cmTC_b3456.exe" /INCREMENTAL /ILK:"cmTC_b3456.dir\\Debug\\cmTC_b3456.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-m6hk5g/Debug/cmTC_b3456.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-m6hk5g/Debug/cmTC_b3456.lib" /MACHINE:X64  /machine:x64 cmTC_b3456.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_b3456.vcxproj -> C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m6hk5g\\Debug\\cmTC_b3456.exe
         FinalizeBuildStatus:
-          Se eliminar├í el archivo "cmTC_30398.dir\\Debug\\cmTC_30398.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_30398.dir\\Debug\\cmTC_30398.tlog\\cmTC_30398.lastbuildstate".
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cxs6dr\\cmTC_30398.vcxproj" (destinos predeterminados).
+          Se eliminar├í el archivo "cmTC_b3456.dir\\Debug\\cmTC_b3456.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_b3456.dir\\Debug\\cmTC_b3456.tlog\\cmTC_b3456.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-m6hk5g\\cmTC_b3456.vcxproj" (destinos predeterminados).
         
         Compilaci├│n correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:00.76
+        Tiempo transcurrido 00:00:01.03
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed C implicit link information:
-        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
         linker tool for 'C': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/HostX64/x64/link.exe
         implicit libs: []
         implicit objs: []
@@ -193,9 +193,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the C compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/HostX64/x64/link.exe" "-v"
@@ -204,14 +204,14 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-8nh7uu"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-8nh7uu"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-sxj9qu"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-sxj9qu"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -221,52 +221,52 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-8nh7uu'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-sxj9qu'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f230a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_0f946.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:48 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:08:01 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nh7uu\\cmTC_f230a.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sxj9qu\\cmTC_0f946.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_f230a.dir\\Debug\\".
+          Creando directorio "cmTC_0f946.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nh7uu\\Debug\\".
-          Creando directorio "cmTC_f230a.dir\\Debug\\cmTC_f230a.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sxj9qu\\Debug\\".
+          Creando directorio "cmTC_0f946.dir\\Debug\\cmTC_0f946.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_f230a.dir\\Debug\\cmTC_f230a.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_f230a.dir\\Debug\\cmTC_f230a.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_0f946.dir\\Debug\\cmTC_0f946.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_0f946.dir\\Debug\\cmTC_0f946.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f230a.dir\\Debug\\\\" /Fd"cmTC_f230a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f946.dir\\Debug\\\\" /Fd"cmTC_0f946.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f230a.dir\\Debug\\\\" /Fd"cmTC_f230a.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0f946.dir\\Debug\\\\" /Fd"cmTC_0f946.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.31\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nh7uu\\Debug\\cmTC_f230a.exe" /INCREMENTAL /ILK:"cmTC_f230a.dir\\Debug\\cmTC_f230a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-8nh7uu/Debug/cmTC_f230a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-8nh7uu/Debug/cmTC_f230a.lib" /MACHINE:X64  /machine:x64 cmTC_f230a.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_f230a.vcxproj -> C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nh7uu\\Debug\\cmTC_f230a.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sxj9qu\\Debug\\cmTC_0f946.exe" /INCREMENTAL /ILK:"cmTC_0f946.dir\\Debug\\cmTC_0f946.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-sxj9qu/Debug/cmTC_0f946.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-sxj9qu/Debug/cmTC_0f946.lib" /MACHINE:X64  /machine:x64 cmTC_0f946.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_0f946.vcxproj -> C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sxj9qu\\Debug\\cmTC_0f946.exe
         FinalizeBuildStatus:
-          Se eliminar├í el archivo "cmTC_f230a.dir\\Debug\\cmTC_f230a.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_f230a.dir\\Debug\\cmTC_f230a.tlog\\cmTC_f230a.lastbuildstate".
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-8nh7uu\\cmTC_f230a.vcxproj" (destinos predeterminados).
+          Se eliminar├í el archivo "cmTC_0f946.dir\\Debug\\cmTC_0f946.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_0f946.dir\\Debug\\cmTC_0f946.tlog\\cmTC_0f946.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sxj9qu\\cmTC_0f946.vcxproj" (destinos predeterminados).
         
         Compilaci├│n correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:00.81
+        Tiempo transcurrido 00:00:00.95
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
-        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
         linker tool for 'CXX': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/HostX64/x64/link.exe
         implicit libs: []
         implicit objs: []
@@ -277,9 +277,9 @@ events:
   -
     kind: "message-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:264 (cmake_determine_linker_id)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/HostX64/x64/link.exe" "-v"
@@ -288,20 +288,20 @@ events:
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:97 (check_c_source_compiles)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:163 (_threads_check_libc)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:34 (_qt_internal_find_third_party_dependencies)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:146 (include)"
-      - "CMakeLists.txt:11 (find_package)"
+      - "CMakeLists.txt:10 (find_package)"
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-zytdr8"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-zytdr8"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-0dzdcs"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-0dzdcs"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -311,58 +311,58 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-zytdr8'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-0dzdcs'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f53cf.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_9dfbe.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:50 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:08:03 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\cmTC_f53cf.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\cmTC_9dfbe.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_f53cf.dir\\Debug\\".
+          Creando directorio "cmTC_9dfbe.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\Debug\\".
-          Creando directorio "cmTC_f53cf.dir\\Debug\\cmTC_f53cf.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\Debug\\".
+          Creando directorio "cmTC_9dfbe.dir\\Debug\\cmTC_9dfbe.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_f53cf.dir\\Debug\\cmTC_f53cf.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_f53cf.dir\\Debug\\cmTC_f53cf.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_9dfbe.dir\\Debug\\cmTC_9dfbe.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_9dfbe.dir\\Debug\\cmTC_9dfbe.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f53cf.dir\\Debug\\\\" /Fd"cmTC_f53cf.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\src.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9dfbe.dir\\Debug\\\\" /Fd"cmTC_9dfbe.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\src.c"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f53cf.dir\\Debug\\\\" /Fd"cmTC_f53cf.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\src.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_9dfbe.dir\\Debug\\\\" /Fd"cmTC_9dfbe.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\src.c"
           src.c
-        C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\cmTC_f53cf.vcxproj]
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\cmTC_f53cf.vcxproj" (destinos predeterminados) -- ERROR.
+        C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\cmTC_9dfbe.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\cmTC_9dfbe.vcxproj" (destinos predeterminados) -- ERROR.
         
         ERROR al compilar.
         
-        "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\cmTC_f53cf.vcxproj" (destino predeterminado) (1) ->
+        "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\cmTC_9dfbe.vcxproj" (destino predeterminado) (1) ->
         (ClCompile destino) -> 
-          C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zytdr8\\cmTC_f53cf.vcxproj]
+          C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\src.c(1,10): error C1083: No se puede abrir el archivo incluir: 'pthread.h': No such file or directory [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-0dzdcs\\cmTC_9dfbe.vcxproj]
         
             0 Advertencia(s)
             1 Errores
         
-        Tiempo transcurrido 00:00:00.46
+        Tiempo transcurrido 00:00:00.70
         
       exitCode: 1
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:175 (_threads_check_lib)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:34 (_qt_internal_find_third_party_dependencies)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:146 (include)"
-      - "CMakeLists.txt:11 (find_package)"
+      - "CMakeLists.txt:10 (find_package)"
     checks:
       - "Looking for pthread_create in pthreads"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-19nbt7"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-19nbt7"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-1rd5s8"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-1rd5s8"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -372,60 +372,60 @@ events:
       variable: "CMAKE_HAVE_PTHREADS_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-19nbt7'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-1rd5s8'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a0ba2.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f8d14.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:51 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:08:04 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\cmTC_a0ba2.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\cmTC_f8d14.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_a0ba2.dir\\Debug\\".
+          Creando directorio "cmTC_f8d14.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\Debug\\".
-          Creando directorio "cmTC_a0ba2.dir\\Debug\\cmTC_a0ba2.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\Debug\\".
+          Creando directorio "cmTC_f8d14.dir\\Debug\\cmTC_f8d14.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_a0ba2.dir\\Debug\\cmTC_a0ba2.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_a0ba2.dir\\Debug\\cmTC_a0ba2.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_f8d14.dir\\Debug\\cmTC_f8d14.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_f8d14.dir\\Debug\\cmTC_f8d14.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a0ba2.dir\\Debug\\\\" /Fd"cmTC_a0ba2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f8d14.dir\\Debug\\\\" /Fd"cmTC_f8d14.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\CheckFunctionExists.c"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a0ba2.dir\\Debug\\\\" /Fd"cmTC_a0ba2.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f8d14.dir\\Debug\\\\" /Fd"cmTC_f8d14.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\Debug\\cmTC_a0ba2.exe" /INCREMENTAL /ILK:"cmTC_a0ba2.dir\\Debug\\cmTC_a0ba2.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-19nbt7/Debug/cmTC_a0ba2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-19nbt7/Debug/cmTC_a0ba2.lib" /MACHINE:X64  /machine:x64 cmTC_a0ba2.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\cmTC_a0ba2.vcxproj]
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\cmTC_a0ba2.vcxproj" (destinos predeterminados) -- ERROR.
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\Debug\\cmTC_f8d14.exe" /INCREMENTAL /ILK:"cmTC_f8d14.dir\\Debug\\cmTC_f8d14.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-1rd5s8/Debug/cmTC_f8d14.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-1rd5s8/Debug/cmTC_f8d14.lib" /MACHINE:X64  /machine:x64 cmTC_f8d14.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\cmTC_f8d14.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\cmTC_f8d14.vcxproj" (destinos predeterminados) -- ERROR.
         
         ERROR al compilar.
         
-        "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\cmTC_a0ba2.vcxproj" (destino predeterminado) (1) ->
+        "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\cmTC_f8d14.vcxproj" (destino predeterminado) (1) ->
         (Link destino) -> 
-          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-19nbt7\\cmTC_a0ba2.vcxproj]
+          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthreads.lib' [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-1rd5s8\\cmTC_f8d14.vcxproj]
         
             0 Advertencia(s)
             1 Errores
         
-        Tiempo transcurrido 00:00:00.58
+        Tiempo transcurrido 00:00:00.74
         
       exitCode: 1
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckLibraryExists.cmake:112 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:112 (check_library_exists)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/FindThreads.cmake:176 (_threads_check_lib)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckLibraryExists.cmake:78 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Dependencies.cmake:34 (_qt_internal_find_third_party_dependencies)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:146 (include)"
-      - "CMakeLists.txt:11 (find_package)"
+      - "CMakeLists.txt:10 (find_package)"
     checks:
       - "Looking for pthread_create in pthread"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-tm9p00"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-tm9p00"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-nabasa"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-nabasa"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
       CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -435,61 +435,61 @@ events:
       variable: "CMAKE_HAVE_PTHREAD_CREATE"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-tm9p00'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-nabasa'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_5306c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_14a66.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:52 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:08:05 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\cmTC_5306c.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\cmTC_14a66.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_5306c.dir\\Debug\\".
+          Creando directorio "cmTC_14a66.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\Debug\\".
-          Creando directorio "cmTC_5306c.dir\\Debug\\cmTC_5306c.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\Debug\\".
+          Creando directorio "cmTC_14a66.dir\\Debug\\cmTC_14a66.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_5306c.dir\\Debug\\cmTC_5306c.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_5306c.dir\\Debug\\cmTC_5306c.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_14a66.dir\\Debug\\cmTC_14a66.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_14a66.dir\\Debug\\cmTC_14a66.tlog\\unsuccessfulbuild".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5306c.dir\\Debug\\\\" /Fd"cmTC_5306c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\CheckFunctionExists.c"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_14a66.dir\\Debug\\\\" /Fd"cmTC_14a66.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\CheckFunctionExists.c"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5306c.dir\\Debug\\\\" /Fd"cmTC_5306c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\CheckFunctionExists.c"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_14a66.dir\\Debug\\\\" /Fd"cmTC_14a66.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\CheckFunctionExists.c"
           CheckFunctionExists.c
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\Debug\\cmTC_5306c.exe" /INCREMENTAL /ILK:"cmTC_5306c.dir\\Debug\\cmTC_5306c.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-tm9p00/Debug/cmTC_5306c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-tm9p00/Debug/cmTC_5306c.lib" /MACHINE:X64  /machine:x64 cmTC_5306c.dir\\Debug\\CheckFunctionExists.obj
-        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\cmTC_5306c.vcxproj]
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\cmTC_5306c.vcxproj" (destinos predeterminados) -- ERROR.
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\Debug\\cmTC_14a66.exe" /INCREMENTAL /ILK:"cmTC_14a66.dir\\Debug\\cmTC_14a66.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-nabasa/Debug/cmTC_14a66.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-nabasa/Debug/cmTC_14a66.lib" /MACHINE:X64  /machine:x64 cmTC_14a66.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\cmTC_14a66.vcxproj]
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\cmTC_14a66.vcxproj" (destinos predeterminados) -- ERROR.
         
         ERROR al compilar.
         
-        "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\cmTC_5306c.vcxproj" (destino predeterminado) (1) ->
+        "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\cmTC_14a66.vcxproj" (destino predeterminado) (1) ->
         (Link destino) -> 
-          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tm9p00\\cmTC_5306c.vcxproj]
+          LINK : fatal error LNK1104: no se puede abrir el archivo 'pthread.lib' [C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-nabasa\\cmTC_14a66.vcxproj]
         
             0 Advertencia(s)
             1 Errores
         
-        Tiempo transcurrido 00:00:00.58
+        Tiempo transcurrido 00:00:00.78
         
       exitCode: 1
   -
     kind: "try_compile-v1"
     backtrace:
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CheckCXXSourceCompiles.cmake:58 (cmake_check_source_compiles)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/FindWrapAtomic.cmake:36 (check_cxx_source_compiles)"
-      - "C:/Program Files/CMake/share/cmake-4.0/Modules/CMakeFindDependencyMacro.cmake:78 (find_package)"
+      - "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake:35 (_qt_internal_find_third_party_dependencies)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:45 (include)"
       - "C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/Qt6Config.cmake:196 (find_package)"
-      - "CMakeLists.txt:11 (find_package)"
+      - "CMakeLists.txt:10 (find_package)"
     checks:
       - "Performing Test HAVE_STDATOMIC"
     directories:
-      source: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-25a1gt"
-      binary: "C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-25a1gt"
+      source: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-i7qsv9"
+      binary: "C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-i7qsv9"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
@@ -499,31 +499,31 @@ events:
       variable: "HAVE_STDATOMIC"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-25a1gt'
+        Change Dir: 'C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-i7qsv9'
         
-        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_b4bad.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f9d3f.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         Versi├│n de MSBuild 17.13.19+0d9f5a35a para .NET Framework
-        Compilaci├│n iniciada a las 30/03/2025 9:53:53 a.┬ám..
+        Compilaci├│n iniciada a las 31/03/2025 12:08:07 p.┬ám..
         
-        Proyecto "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\cmTC_b4bad.vcxproj" en nodo 1 (destinos predeterminados).
+        Proyecto "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\cmTC_f9d3f.vcxproj" en nodo 1 (destinos predeterminados).
         PrepareForBuild:
-          Creando directorio "cmTC_b4bad.dir\\Debug\\".
+          Creando directorio "cmTC_f9d3f.dir\\Debug\\".
           La salida estructurada est├í habilitada. El formato del diagn├│stico del compilador reflejar├í la jerarqu├¡a de errores. Consulte https://aka.ms/cpp/structured-output para obtener m├ís detalles.
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\Debug\\".
-          Creando directorio "cmTC_b4bad.dir\\Debug\\cmTC_b4bad.tlog\\".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\Debug\\".
+          Creando directorio "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.tlog\\".
         InitializeBuildStatus:
-          Se crear├í "cmTC_b4bad.dir\\Debug\\cmTC_b4bad.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
-          Aplicando tarea Touch a "cmTC_b4bad.dir\\Debug\\cmTC_b4bad.tlog\\unsuccessfulbuild".
+          Se crear├í "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.tlog\\unsuccessfulbuild" porque se especific├│ "AlwaysCreate".
+          Aplicando tarea Touch a "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.tlog\\unsuccessfulbuild".
         ComputeStdModulesCompileInputs:
           Leyendo el archivo de manifiesto de biblioteca "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\modules\\modules.json", que proporciona datos para la biblioteca "microsoft/STL".
           Agregando el origen del m├│dulo "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\modules\\std.ixx" de la biblioteca "microsoft/STL" para compilar con este proyecto.
           Agregando el origen del m├│dulo "C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\modules\\std.compat.ixx" de la biblioteca "microsoft/STL" para compilar con este proyecto.
         MakeDirsForCl:
-          Creando directorio "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\cmTC_b4bad.dir\\Debug\\microsoft\\STL".
+          Creando directorio "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\cmTC_f9d3f.dir\\Debug\\microsoft\\STL".
         SetModuleDependencies:
-          Creando directorio "cmTC_b4bad.dir\\Debug\\cmTC_b4bad_MD.tlog\\".
+          Creando directorio "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f_MD.tlog\\".
         ClCompile:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++latest /Fo"cmTC_b4bad.dir\\Debug\\\\" /Fd"cmTC_b4bad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\src.cxx"
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++latest /Fo"cmTC_f9d3f.dir\\Debug\\\\" /Fd"cmTC_f9d3f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\src.cxx"
           Compilador de optimizaci├│n de C/C++ de Microsoft (R) versi├│n 19.43.34809 para x64
           (C) Microsoft Corporation. Todos los derechos reservados.
           /std:c++latest se proporciona como versi├│n preliminar de las caracter├¡sticas del lenguaje del ├║ltimo borrador de trabajo
@@ -531,21 +531,21 @@ events:
           Sin embargo, tenga en cuenta que estas caracter├¡sticas se proporcionan tal cual, sin soporte, y est├ín sujetas a
           cambios o a su posible eliminaci├│n a medida que evoluciona el borrador de trabajo. Consulte
           https://go.microsoft.com/fwlink/?linkid=2045807 para obtener m├ís detalles.
-          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++latest /Fo"cmTC_b4bad.dir\\Debug\\\\" /Fd"cmTC_b4bad.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\src.cxx"
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STDATOMIC /D "CMAKE_INTDIR=\\"Debug\\"" /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /std:c++latest /Fo"cmTC_f9d3f.dir\\Debug\\\\" /Fd"cmTC_f9d3f.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\src.cxx"
           src.cxx
         Link:
-          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\Debug\\cmTC_b4bad.exe" /INCREMENTAL /ILK:"cmTC_b4bad.dir\\Debug\\cmTC_b4bad.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-25a1gt/Debug/cmTC_b4bad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/miner/Documents/Proyectos Software/C++/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-25a1gt/Debug/cmTC_b4bad.lib" /MACHINE:X64  /machine:x64 cmTC_b4bad.dir\\Debug\\src.obj
-          cmTC_b4bad.vcxproj -> C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\Debug\\cmTC_b4bad.exe
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.43.34808\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\Debug\\cmTC_f9d3f.exe" /INCREMENTAL /ILK:"cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-i7qsv9/Debug/cmTC_f9d3f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Software/CPP/CameraCPP_OpenCV/build/CMakeFiles/CMakeScratch/TryCompile-i7qsv9/Debug/cmTC_f9d3f.lib" /MACHINE:X64  /machine:x64 cmTC_f9d3f.dir\\Debug\\src.obj
+          cmTC_f9d3f.vcxproj -> C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\Debug\\cmTC_f9d3f.exe
         FinalizeBuildStatus:
-          Se eliminar├í el archivo "cmTC_b4bad.dir\\Debug\\cmTC_b4bad.tlog\\unsuccessfulbuild".
-          Aplicando tarea Touch a "cmTC_b4bad.dir\\Debug\\cmTC_b4bad.tlog\\cmTC_b4bad.lastbuildstate".
-        Compilaci├│n del proyecto terminada "C:\\Users\\miner\\Documents\\Proyectos Software\\C++\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-25a1gt\\cmTC_b4bad.vcxproj" (destinos predeterminados).
+          Se eliminar├í el archivo "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.tlog\\unsuccessfulbuild".
+          Aplicando tarea Touch a "cmTC_f9d3f.dir\\Debug\\cmTC_f9d3f.tlog\\cmTC_f9d3f.lastbuildstate".
+        Compilaci├│n del proyecto terminada "C:\\Software\\CPP\\CameraCPP_OpenCV\\build\\CMakeFiles\\CMakeScratch\\TryCompile-i7qsv9\\cmTC_f9d3f.vcxproj" (destinos predeterminados).
         
         Compilaci├│n correcta.
             0 Advertencia(s)
             0 Errores
         
-        Tiempo transcurrido 00:00:00.94
+        Tiempo transcurrido 00:00:01.26
         
       exitCode: 0
 ...

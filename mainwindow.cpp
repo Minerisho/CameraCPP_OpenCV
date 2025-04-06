@@ -61,12 +61,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::initializeCamera()
 {
-    cap.open(0, cv::CAP_DSHOW);
+    cap.open(0, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
         QMessageBox::critical(this, "Error de Cámara", "No se pudo abrir la cámara web.");
     } else {
-        cap.set(cv::CAP_PROP_FPS, 30.0);
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
 
@@ -92,15 +91,16 @@ void MainWindow::updateFrame()
         updateButtonStates();
         return;
     }
-
-    cv::Mat frameToDisplay = frame.clone();
+    cv::Mat flippedFrame;
+    cv::flip(frame, flippedFrame, -1);
+    cv::Mat frameToDisplay = flippedFrame.clone();
 
     if (isRecording) {
         cv::circle(frameToDisplay, cv::Point(30, 30), 10, cv::Scalar(0, 0, 255), cv::FILLED);
         cv::putText(frameToDisplay, "REC", cv::Point(50, 37), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 0, 255), 2);
 
         if (writer.isOpened()) {
-            writer.write(frame);
+            writer.write(flippedFrame);
         } else {
              qWarning() << "Error: Intentando escribir con VideoWriter cerrado mientras isRecording es true.";
              isRecording = false;
@@ -120,7 +120,7 @@ void MainWindow::on_recordButton_clicked()
 {
     if (isRecording || !cap.isOpened()) return;
 
-    QString baseName = QString("VID%1.mp4").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss"));
+    QString baseName = QString("VID%1.avi").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss"));
     QString filename = getSavePath(baseName);
 
     if (filename.isEmpty()) {
@@ -133,7 +133,7 @@ void MainWindow::on_recordButton_clicked()
     double fps = cap.get(cv::CAP_PROP_FPS);
     if (fps <= 0) fps = 30.0;
 
-    bool opened = writer.open(filename.toStdString(), cv::VideoWriter::fourcc('m', 'p', '4', 'v'), fps, cv::Size(frameWidth, frameHeight));
+    bool opened = writer.open(filename.toStdString(), cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), fps, cv::Size(frameWidth, frameHeight));
 
     if (!opened) {
         QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar:\n%1\nAsegúrate de tener códecs compatibles (ej. MP4V) instalados.").arg(filename));

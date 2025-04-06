@@ -1,10 +1,14 @@
 {
     "Version": "1.2",
     "Data": {
+<<<<<<< HEAD
         "Source": "c:\\users\\miner\\documents\\proyectos software\\c++\\cameracpp_opencv\\mainwindow.cpp",
+=======
+        "Source": "c:\\software\\cpp\\cameracpp_opencv\\mainwindow.cpp",
+>>>>>>> 395ce78d3064b0d985d58292c8738e229c18fd21
         "ProvidedModule": "",
         "Includes": [
-            "c:\\users\\miner\\documents\\proyectos software\\c++\\cameracpp_opencv\\mainwindow.h",
+            "c:\\software\\cpp\\cameracpp_opencv\\mainwindow.h",
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtwidgets\\qmainwindow",
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtwidgets\\qmainwindow.h",
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtwidgets\\qtwidgetsglobal.h",
@@ -531,7 +535,11 @@
             "c:\\opencv\\build\\include\\opencv2\\video.hpp",
             "c:\\opencv\\build\\include\\opencv2\\video\\tracking.hpp",
             "c:\\opencv\\build\\include\\opencv2\\video\\background_segm.hpp",
+<<<<<<< HEAD
             "c:\\users\\miner\\documents\\proyectos software\\c++\\cameracpp_opencv\\build\\opencv_camera_autogen\\include_release\\ui_mainwindow.h",
+=======
+            "c:\\software\\cpp\\cameracpp_opencv\\build\\opencv_camera_autogen\\include_release\\ui_mainwindow.h",
+>>>>>>> 395ce78d3064b0d985d58292c8738e229c18fd21
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtcore\\qvariant",
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtgui\\qaction",
             "c:\\qt\\6.8.3\\msvc2022_64\\include\\qtwidgets\\qapplication",

@@ -1,4 +1,4 @@
-C:/Users/miner/Documents/Proyectos\ Software/C++/CameraCPP_OpenCV/build/opencv_camera_autogen/include_Release/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/miner/Documents/Proyectos\ Software/C++/CameraCPP_OpenCV/mainwindow.h \
+C:/Software/CPP/CameraCPP_OpenCV/build/opencv_camera_autogen/include_Release/EWIEGA46WW/moc_mainwindow.cpp: C:/Software/CPP/CameraCPP_OpenCV/mainwindow.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/QTimer \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.3/msvc2022_64/include/QtCore/q20iterator.h \
