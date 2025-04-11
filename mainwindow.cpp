@@ -52,21 +52,18 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadSettings()
 {
-    // Usa nombres únicos para tu organización y aplicación
     QSettings settings("PredictPath UIS", "Histomerge");
     // Cargar índice de cámara (si existe, si no, usa el default 0)
     selectedCameraIndex = settings.value("selectedCameraIndex", 0).toInt();
-    // Cargar ruta de guardado
     QString loadedPath = settings.value("saveFolderPath").toString();
     if (!loadedPath.isEmpty() && QDir(loadedPath).exists()) {
         saveFolderPath = loadedPath;
         qInfo() << "Carpeta de guardado cargada:" << saveFolderPath;
     } else {
         qInfo() << "No se encontró ruta guardada o es inválida. Usando ruta por defecto.";
-        setupDefaultSavePath(); // Establecer ruta por defecto si no hay válida guardada
+        setupDefaultSavePath(); 
     }
-     // Asegurar que la cámara correcta se inicie si se cargó un índice diferente de 0
-     // initializeCamera() se llama después en el constructor de todas formas.
+
 }
 
 void MainWindow::saveSettings()
@@ -135,17 +132,14 @@ void MainWindow::updateFrame()
         return;
     }
 
-    // Aplicar flip -1 (Horizontal y Vertical) consistentemente
     cv::flip(frame, flippedFrame, -1);
-    // Usar una copia para dibujar si es necesario, si no, podemos usar flippedFrame directamente
-    cv::Mat frameToDisplay = flippedFrame.clone(); // Usamos clone por si dibujamos sobre ella
+    cv::Mat frameToDisplay = flippedFrame.clone(); 
 
     if (isRecording) {
         cv::circle(frameToDisplay, cv::Point(30, 30), 10, cv::Scalar(0, 0, 255), cv::FILLED);
         cv::putText(frameToDisplay, "REC", cv::Point(50, 37), cv::FONT_HERSHEY_SIMPLEX, 0.7, cv::Scalar(0, 0, 255), 2);
 
         if (writer.isOpened()) {
-            // Escribir el frame FLIPPED al archivo
             writer.write(flippedFrame);
         } else {
              qWarning() << "Error: Intentando escribir con VideoWriter cerrado mientras isRecording es true.";
@@ -154,7 +148,6 @@ void MainWindow::updateFrame()
     }
 
     cv::Mat frameRgb;
-    // Convertir frameToDisplay (que es flippedFrame) a RGB
     cv::cvtColor(frameToDisplay, frameRgb, cv::COLOR_BGR2RGB);
     QImage qtImage(frameRgb.data, frameRgb.cols, frameRgb.rows, frameRgb.step, QImage::Format_RGB888);
     ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
@@ -208,7 +201,6 @@ void MainWindow::on_stopButton_clicked()
 
 void MainWindow::on_captureButton_clicked()
 {
-    // Usar el miembro flippedFrame que se actualiza en updateFrame
     if (!cap.isOpened() || flippedFrame.empty()) {
         QMessageBox::warning(this, "Captura", "No hay imagen válida para capturar o la cámara no está abierta.");
         return;
@@ -223,7 +215,6 @@ void MainWindow::on_captureButton_clicked()
         return;
     }
 
-    // Guardar el frame FLIPPED como JPG
     bool saved = cv::imwrite(filename.toStdString(), flippedFrame);
 
     if (saved) {
@@ -235,8 +226,7 @@ void MainWindow::on_captureButton_clicked()
 
 void MainWindow::on_exitButton_clicked()
 {
-    // Guardar configuración antes de cerrar (opcional pero buena idea)
-    saveSettings(); // Podrías llamarlo aquí o en un closeEvent
+    saveSettings();
     close();
 }
 
@@ -244,7 +234,6 @@ void MainWindow::on_exitButton_clicked()
 void MainWindow::updateButtonStates()
 {
     bool cameraIsOpen = cap.isOpened();
-    // Considerar habilitar captura solo si ya llegó el primer frame flippeado?
     bool frameIsValid = !flippedFrame.empty();
     bool enableButtons = cameraIsOpen && frameIsValid;
 
@@ -265,7 +254,7 @@ void MainWindow::on_actionSeleccionar_carpeta_de_guardado_triggered()
     if (!dir.isEmpty()) {
         saveFolderPath = dir;
         qInfo() << "Nueva carpeta de guardado seleccionada:" << saveFolderPath;
-        saveSettings(); // Guardar la nueva ruta inmediatamente
+        saveSettings(); 
     }
 }
 
@@ -284,15 +273,14 @@ void MainWindow::on_actionSeleccionar_camara_triggered()
     if (ok && newIndex != selectedCameraIndex) {
         selectedCameraIndex = newIndex;
         qInfo() << "Intentando cambiar al índice de cámara:" << selectedCameraIndex;
-        saveSettings(); // Guardar el nuevo índice seleccionado
+        saveSettings(); 
         if(isRecording){
             on_stopButton_clicked();
         }
-        // Limpiar el frame anterior antes de cambiar cámara
         frame = cv::Mat();
         flippedFrame = cv::Mat();
-        ui->videoLabel->clear(); // Limpiar el label visualmente
-        QApplication::processEvents(); // Procesar eventos para que se vea el clear
+        ui->videoLabel->clear(); 
+        QApplication::processEvents(); 
         initializeCamera();
     }
 }
