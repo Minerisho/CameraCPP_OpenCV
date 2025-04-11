@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>799</width>
-    <height>693</height>
+    <width>828</width>
+    <height>633</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Histomerge</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
     <item>
      <widget class="QLabel" name="videoLabel">
       <property name="text">
@@ -29,8 +29,8 @@
      <widget class="QFrame" name="frame">
       <property name="maximumSize">
        <size>
-        <width>16777215</width>
-        <height>50</height>
+        <width>100</width>
+        <height>167000</height>
        </size>
       </property>
       <property name="frameShape">
@@ -39,14 +39,22 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
         <widget class="QPushButton" name="recordButton">
          <property name="maximumSize">
           <size>
-           <width>80</width>
-           <height>23</height>
+           <width>16000</width>
+           <height>75</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Yu Gothic UI Semibold</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <property name="accessibleName">
           <string>Grabar</string>
@@ -63,9 +71,17 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>80</width>
-           <height>23</height>
+           <width>16000</width>
+           <height>75</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Yu Gothic UI Semibold</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <property name="text">
           <string>Detener</string>
@@ -76,12 +92,21 @@
         <widget class="QPushButton" name="captureButton">
          <property name="maximumSize">
           <size>
-           <width>100</width>
-           <height>23</height>
+           <width>16000</width>
+           <height>75</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Yu Gothic UI Semibold</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
-          <string>Capturar Frame</string>
+          <string>Capturar
+Frame</string>
          </property>
         </widget>
        </item>
@@ -89,9 +114,17 @@
         <widget class="QPushButton" name="exitButton">
          <property name="maximumSize">
           <size>
-           <width>80</width>
-           <height>23</height>
+           <width>16000</width>
+           <height>75</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Yu Gothic UI Semibold</family>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
          </property>
          <property name="text">
           <string>Salir</string>
@@ -108,7 +141,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>799</width>
+     <width>828</width>
      <height>21</height>
     </rect>
    </property>
@@ -118,8 +151,18 @@
     </property>
     <addaction name="actionSeleccionar_carpeta_de_guardado"/>
     <addaction name="actionSeleccionar_camara"/>
+    <addaction name="separator"/>
+    <addaction name="actionFormato_de_salida"/>
+   </widget>
+   <widget class="QMenu" name="menuAcerca_de">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionAtajos_de_teclado"/>
+    <addaction name="actionAcerca_de"/>
    </widget>
    <addaction name="menuOpciones"/>
+   <addaction name="menuAcerca_de"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionSeleccionar_carpeta_de_guardado">
@@ -130,6 +173,21 @@
   <action name="actionSeleccionar_camara">
    <property name="text">
     <string>Seleccionar cámara</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+  </action>
+  <action name="actionAtajos_de_teclado">
+   <property name="text">
+    <string>Atajos de teclado</string>
+   </property>
+  </action>
+  <action name="actionFormato_de_salida">
+   <property name="text">
+    <string>Formato de salida</string>
    </property>
   </action>
  </widget>
