@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "formatdialog.h"
+#include "shortcutsdialog.h"
+#include "aboutdialog.h"
 
 #include <QMessageBox>
 #include <QFileDialog>
@@ -9,7 +12,9 @@
 #include <QStandardPaths>
 #include <QApplication>
 #include <QAction>
-#include <QSettings> 
+#include <QSettings>
+#include <QKeySequence> // Necesario
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,21 +26,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->videoLabel->setAlignment(Qt::AlignCenter);
 
-    loadSettings(); // Cargar configuración guardada 
+    loadSettings(); // Carga carpeta, cámara, formato Y ATAJOS
+    applyShortcuts(); // Aplica los atajos cargados a los botones
 
     connect(timer, &QTimer::timeout, this, &MainWindow::updateFrame);
 
     initializeCamera();
 
-    if (cap.isOpened()) {
-        ui->recordButton->setEnabled(true);
-        ui->captureButton->setEnabled(true);
-        ui->stopButton->setEnabled(false);
-    } else {
-        ui->recordButton->setEnabled(false);
-        ui->captureButton->setEnabled(false);
-        ui->stopButton->setEnabled(false);
-    }
+    updateButtonStates();
     ui->exitButton->setEnabled(true);
 }
 
@@ -52,18 +50,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadSettings()
 {
-    QSettings settings("PredictPath UIS", "Histomerge");
-    // Cargar índice de cámara (si existe, si no, usa el default 0)
+    QSettings settings("HistomergeDev", "HistomergeCameraApp");
     selectedCameraIndex = settings.value("selectedCameraIndex", 0).toInt();
+
     QString loadedPath = settings.value("saveFolderPath").toString();
     if (!loadedPath.isEmpty() && QDir(loadedPath).exists()) {
         saveFolderPath = loadedPath;
         qInfo() << "Carpeta de guardado cargada:" << saveFolderPath;
     } else {
         qInfo() << "No se encontró ruta guardada o es inválida. Usando ruta por defecto.";
-        setupDefaultSavePath(); 
+        setupDefaultSavePath();
     }
 
+    selectedFourcc = settings.value("selectedFourcc", cv::VideoWriter::fourcc('M', 'J', 'P', 'G')).toInt();
+    selectedExtension = settings.value("selectedExtension", ".avi").toString();
+    qInfo() << "Formato cargado - FOURCC:" << selectedFourcc << "Extensión:" << selectedExtension;
+
+    // Cargar Atajos (con defaults si no existen)
+    m_shortcutRecord = settings.value("shortcutRecord", QKeySequence("Ctrl+G")).value<QKeySequence>();
+    m_shortcutStop = settings.value("shortcutStop", QKeySequence("Ctrl+D")).value<QKeySequence>();
+    m_shortcutCapture = settings.value("shortcutCapture", QKeySequence("Ctrl+C")).value<QKeySequence>();
+    qInfo() << "Atajos cargados - Grabar:" << m_shortcutRecord.toString()
+            << "Detener:" << m_shortcutStop.toString()
+            << "Capturar:" << m_shortcutCapture.toString();
 }
 
 void MainWindow::saveSettings()
@@ -71,7 +80,24 @@ void MainWindow::saveSettings()
     QSettings settings("HistomergeDev", "HistomergeCameraApp");
     settings.setValue("selectedCameraIndex", selectedCameraIndex);
     settings.setValue("saveFolderPath", saveFolderPath);
-     qInfo() << "Configuración guardada.";
+    settings.setValue("selectedFourcc", selectedFourcc);
+    settings.setValue("selectedExtension", selectedExtension);
+    // Guardar Atajos
+    settings.setValue("shortcutRecord", m_shortcutRecord);
+    settings.setValue("shortcutStop", m_shortcutStop);
+    settings.setValue("shortcutCapture", m_shortcutCapture);
+
+    qInfo() << "Configuración guardada.";
+}
+
+// Nueva función para aplicar los atajos a los botones
+void MainWindow::applyShortcuts()
+{
+    ui->recordButton->setShortcut(m_shortcutRecord);
+    ui->stopButton->setShortcut(m_shortcutStop);
+    ui->captureButton->setShortcut(m_shortcutCapture);
+    // Opcional: podrías asignar atajos a las QAction del menú también
+    // ui->actionGrabar->setShortcut(m_shortcutRecord); // Si tuvieras acciones para ellos
 }
 
 
@@ -89,7 +115,7 @@ void MainWindow::setupDefaultSavePath()
              saveFolderPath = QApplication::applicationDirPath();
         }
     }
-     qInfo() << "Establecida carpeta de guardado por defecto:" << saveFolderPath;
+    qInfo() << "Establecida carpeta de guardado por defecto:" << saveFolderPath;
 }
 
 
@@ -102,13 +128,16 @@ void MainWindow::initializeCamera()
         timer->stop();
     }
 
+    frame = cv::Mat();
+    flippedFrame = cv::Mat();
+    ui->videoLabel->clear();
+    QApplication::processEvents();
+
     cap.open(selectedCameraIndex, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
         QMessageBox::critical(this, "Error de Cámara", QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
-        ui->recordButton->setEnabled(false);
-        ui->captureButton->setEnabled(false);
-        ui->stopButton->setEnabled(false);
+        updateButtonStates();
     } else {
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
@@ -124,7 +153,18 @@ void MainWindow::initializeCamera()
 
 void MainWindow::updateFrame()
 {
-    if (!cap.isOpened()) return;
+     if (!cap.isOpened()) {
+        frame = cv::Mat();
+        flippedFrame = cv::Mat();
+        if (!ui->videoLabel->pixmap(Qt::ReturnByValue).isNull()) {
+             ui->videoLabel->clear();
+        }
+        if (isRecording) {
+            on_stopButton_clicked();
+        }
+        updateButtonStates();
+        return;
+     }
 
     cap >> frame;
 
@@ -133,7 +173,7 @@ void MainWindow::updateFrame()
     }
 
     cv::flip(frame, flippedFrame, -1);
-    cv::Mat frameToDisplay = flippedFrame.clone(); 
+    cv::Mat frameToDisplay = flippedFrame.clone();
 
     if (isRecording) {
         cv::circle(frameToDisplay, cv::Point(30, 30), 10, cv::Scalar(0, 0, 255), cv::FILLED);
@@ -144,13 +184,17 @@ void MainWindow::updateFrame()
         } else {
              qWarning() << "Error: Intentando escribir con VideoWriter cerrado mientras isRecording es true.";
              isRecording = false;
+             updateButtonStates();
         }
     }
 
     cv::Mat frameRgb;
     cv::cvtColor(frameToDisplay, frameRgb, cv::COLOR_BGR2RGB);
     QImage qtImage(frameRgb.data, frameRgb.cols, frameRgb.rows, frameRgb.step, QImage::Format_RGB888);
-    ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
+    if (!qtImage.isNull()) {
+        ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
 
     updateButtonStates();
 }
@@ -158,9 +202,12 @@ void MainWindow::updateFrame()
 
 void MainWindow::on_recordButton_clicked()
 {
-    if (isRecording || !cap.isOpened()) return;
+    if (isRecording || !cap.isOpened() || flippedFrame.empty()) {
+         QMessageBox::warning(this, "Grabar", "La cámara no está lista o no hay frames válidos.");
+        return;
+    }
 
-    QString baseName = QString("VID%1.avi").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss"));
+    QString baseName = QString("VID%1%2").arg(QDateTime::currentDateTime().toString("yyyyMMddHHmmss")).arg(selectedExtension);
     QDir saveDir(saveFolderPath);
     QString filename = saveDir.filePath(baseName);
 
@@ -169,16 +216,15 @@ void MainWindow::on_recordButton_clicked()
         return;
     }
 
-
     int frameWidth = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_WIDTH));
     int frameHeight = static_cast<int>(cap.get(cv::CAP_PROP_FRAME_HEIGHT));
     double fps = 15.0;
     if (fps <= 0) fps = 15.0;
 
-    bool opened = writer.open(filename.toStdString(), cv::VideoWriter::fourcc('M', 'J', 'P', 'G'), fps, cv::Size(frameWidth, frameHeight));
+    bool opened = writer.open(filename.toStdString(), selectedFourcc, fps, cv::Size(frameWidth, frameHeight));
 
     if (!opened) {
-        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar:\n%1").arg(filename));
+        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar (¿Códec seleccionado compatible e instalado?):\n%1").arg(filename));
         return;
     }
 
@@ -235,12 +281,20 @@ void MainWindow::updateButtonStates()
 {
     bool cameraIsOpen = cap.isOpened();
     bool frameIsValid = !flippedFrame.empty();
-    bool enableButtons = cameraIsOpen && frameIsValid;
+    bool enableActions = cameraIsOpen && frameIsValid;
 
-    ui->recordButton->setEnabled(enableButtons && !isRecording);
-    ui->stopButton->setEnabled(enableButtons && isRecording);
-    ui->captureButton->setEnabled(enableButtons);
+    ui->recordButton->setEnabled(enableActions && !isRecording);
+    ui->stopButton->setEnabled(enableActions && isRecording);
+    ui->captureButton->setEnabled(enableActions);
     ui->exitButton->setEnabled(true);
+
+    ui->actionFormato_de_salida->setEnabled(true);
+    ui->actionSeleccionar_camara->setEnabled(true);
+    ui->actionSeleccionar_carpeta_de_guardado->setEnabled(true);
+    // Habilitar/deshabilitar nuevas acciones de menú si es necesario
+    ui->actionAtajos_de_teclado->setEnabled(true);
+    ui->actionAcerca_de->setEnabled(true);
+
 }
 
 
@@ -251,10 +305,10 @@ void MainWindow::on_actionSeleccionar_carpeta_de_guardado_triggered()
                                                     saveFolderPath,
                                                     QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
 
-    if (!dir.isEmpty()) {
+    if (!dir.isEmpty() && dir != saveFolderPath) {
         saveFolderPath = dir;
         qInfo() << "Nueva carpeta de guardado seleccionada:" << saveFolderPath;
-        saveSettings(); 
+        saveSettings();
     }
 }
 
@@ -271,16 +325,65 @@ void MainWindow::on_actionSeleccionar_camara_triggered()
                                         &ok);
 
     if (ok && newIndex != selectedCameraIndex) {
-        selectedCameraIndex = newIndex;
-        qInfo() << "Intentando cambiar al índice de cámara:" << selectedCameraIndex;
-        saveSettings(); 
-        if(isRecording){
+         if(isRecording){
             on_stopButton_clicked();
         }
-        frame = cv::Mat();
-        flippedFrame = cv::Mat();
-        ui->videoLabel->clear(); 
-        QApplication::processEvents(); 
+        selectedCameraIndex = newIndex;
+        qInfo() << "Intentando cambiar al índice de cámara:" << selectedCameraIndex;
+        saveSettings();
         initializeCamera();
     }
+}
+
+
+void MainWindow::on_actionFormato_de_salida_triggered()
+{
+    FormatDialog formatDialog(selectedFourcc, selectedExtension, this);
+    if (formatDialog.exec() == QDialog::Accepted) {
+        selectedFourcc = formatDialog.getSelectedFourcc();
+        selectedExtension = formatDialog.getSelectedExtension();
+        qInfo() << "Nuevo formato seleccionado - FOURCC:" << selectedFourcc << "Extensión:" << selectedExtension;
+        saveSettings();
+    }
+}
+
+// Modificado para manejar el diálogo de atajos configurable
+void MainWindow::on_actionAtajos_de_teclado_triggered()
+{
+    // Crear diálogo pasando los atajos actuales
+    ShortcutsDialog shortcutsDialog(m_shortcutRecord, m_shortcutStop, m_shortcutCapture, this);
+    if (shortcutsDialog.exec() == QDialog::Accepted) {
+        // Obtener nuevos atajos del diálogo
+        QKeySequence newRecordSeq = shortcutsDialog.getRecordSequence();
+        QKeySequence newStopSeq = shortcutsDialog.getStopSequence();
+        QKeySequence newCaptureSeq = shortcutsDialog.getCaptureSequence();
+
+        // Actualizar si cambiaron
+        bool changed = false;
+        if (newRecordSeq != m_shortcutRecord) {
+            m_shortcutRecord = newRecordSeq;
+            changed = true;
+        }
+        if (newStopSeq != m_shortcutStop) {
+            m_shortcutStop = newStopSeq;
+            changed = true;
+        }
+        if (newCaptureSeq != m_shortcutCapture) {
+            m_shortcutCapture = newCaptureSeq;
+            changed = true;
+        }
+
+        // Si hubo cambios, aplicar y guardar
+        if (changed) {
+            applyShortcuts(); // Aplicar a los botones
+            saveSettings();   // Guardar en configuración
+            qInfo() << "Atajos actualizados.";
+        }
+    }
+}
+
+void MainWindow::on_actionAcerca_de_triggered()
+{
+    AboutDialog aboutDialog(this);
+    aboutDialog.exec();
 }

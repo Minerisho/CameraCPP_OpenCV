@@ -14,12 +14,26 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
+set(PROJECT_RESOURCES
+    resources.qrc 
+)
+
 # Add executable
 add_executable(${PROJECT_NAME}
     main.cpp
     mainwindow.h
     mainwindow.cpp
-    mainwindow.ui # Añadimos el archivo de interfaz de usuario
+    mainwindow.ui 
+    formatdialog.h
+    formatdialog.cpp
+    formatdialog.ui
+    shortcutsdialog.h
+    shortcutsdialog.cpp
+    shortcutsdialog.ui
+    aboutdialog.h
+    aboutdialog.cpp
+    aboutdialog.ui
+    ${PROJECT_RESOURCES}
 )
 
 # Include directories

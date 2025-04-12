@@ -1,0 +1,6 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/">
+    <file alias="uis_logo.png">images/uis_logo.png</file>
+    <file alias="predictpath_logo.png">images/predictpath_logo.png</file>
+</qresource>
+</RCC>

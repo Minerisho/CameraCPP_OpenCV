@@ -6,6 +6,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QString>
+#include <QKeySequence> // Necesario para atajos
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
@@ -13,6 +14,11 @@
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class FormatDialog;
+class ShortcutsDialog;
+class AboutDialog;
+
 
 class MainWindow : public QMainWindow
 {
@@ -30,23 +36,34 @@ private slots:
     void on_exitButton_clicked();
     void on_actionSeleccionar_carpeta_de_guardado_triggered();
     void on_actionSeleccionar_camara_triggered();
+    void on_actionFormato_de_salida_triggered();
+    void on_actionAtajos_de_teclado_triggered();
+    void on_actionAcerca_de_triggered();
 
 private:
     Ui::MainWindow *ui;
     cv::VideoCapture cap;
     cv::VideoWriter writer;
     cv::Mat frame;
-    cv::Mat flippedFrame; 
+    cv::Mat flippedFrame;
     QTimer *timer;
     bool isRecording;
     QString saveFolderPath;
     int selectedCameraIndex;
+    int selectedFourcc;
+    QString selectedExtension;
+
+    // NUEVOS: Miembros para guardar los atajos de teclado
+    QKeySequence m_shortcutRecord;
+    QKeySequence m_shortcutStop;
+    QKeySequence m_shortcutCapture;
 
     void initializeCamera();
     void updateButtonStates();
     void setupDefaultSavePath();
     void loadSettings();
     void saveSettings();
+    void applyShortcuts(); // Nueva función para aplicar atajos
 
 };
 

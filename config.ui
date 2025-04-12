@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OptionsWindow</class>
+ <widget class="QDialog" name="OptionsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>464</width>
+    <height>301</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Opciones</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QListWidget" name="listCategories">
+     <item>
+      <property name="text">
+       <string>General</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Interfaz</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Rendimiento</string>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QStackedWidget" name="stackedOptions">
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="pageGeneral">
+      <layout class="QVBoxLayout" name="verticalLayoutGeneral">
+       <item>
+        <widget class="QLabel" name="labelGeneral">
+         <property name="text">
+          <string>Opciones generales</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="checkInicio">
+         <property name="text">
+          <string>Abrir archivo anterior al iniciar</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageInterfaz">
+      <layout class="QVBoxLayout" name="verticalLayoutInterfaz">
+       <item>
+        <widget class="QLabel" name="labelInterfaz">
+         <property name="text">
+          <string>Opciones de interfaz</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="comboTema">
+         <item>
+          <property name="text">
+           <string>Claro</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Oscuro</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="pageRendimiento">
+      <layout class="QVBoxLayout" name="verticalLayoutRendimiento">
+       <item>
+        <widget class="QLabel" name="labelRendimiento">
+         <property name="text">
+          <string>Opciones de rendimiento</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="sliderCache"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
