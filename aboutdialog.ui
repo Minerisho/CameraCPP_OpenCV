@@ -20,14 +20,14 @@
       <widget class="QLabel" name="uisLogoLabel">
        <property name="minimumSize">
         <size>
-         <width>150</width>
-         <height>100</height>
+         <width>195</width>
+         <height>78</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>150</width>
-         <height>120</height>
+         <width>195</width>
+         <height>78</height>
         </size>
        </property>
        <property name="text">
@@ -42,11 +42,27 @@
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Maximum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QLabel" name="predictpathLogoLabel">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>100</height>
+         <width>120</width>
+         <height>120</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -88,7 +104,7 @@
    <item>
     <widget class="QLabel" name="infoLabel">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;a href=&quot;https://www.uis.edu.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Universidad Industrial de Santander (UIS)&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Semillero PredictPath&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Versión Alpha 0.3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;a href=&quot;https://www.uis.edu.co&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Universidad Industrial de Santander (UIS)&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Semillero PredictPath&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;Versión Alpha 0.4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::RichText</enum>
