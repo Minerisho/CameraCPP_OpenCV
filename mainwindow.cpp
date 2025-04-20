@@ -13,32 +13,39 @@
 #include <QApplication>
 #include <QAction>
 #include <QSettings>
-#include <QKeySequence> // Necesario
 #include <QDebug>
+#include <QKeySequence>
+#include <QPushButton>
+#include <QShowEvent> // <-- Incluir para QShowEvent
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     timer(new QTimer(this)),
     isRecording(false),
-    selectedCameraIndex(0)
+    selectedCameraIndex(0),
+    initialCameraFailed(false) // Inicializar el nuevo indicador
 {
     ui->setupUi(this);
     ui->videoLabel->setAlignment(Qt::AlignCenter);
 
-    loadSettings(); // Carga carpeta, cámara, formato Y ATAJOS
-    applyShortcuts(); // Aplica los atajos cargados a los botones
+    loadSettings();
+    applyShortcuts();
 
     connect(timer, &QTimer::timeout, this, &MainWindow::updateFrame);
 
+    // Inicializar cámara (ahora no mostrará error aquí)
     initializeCamera();
 
-    updateButtonStates();
+    // El estado de botones lo maneja initializeCamera y updateFrame
+    // Ya no se establece explícitamente aquí.
+    updateButtonStates(); // Llamada inicial para estado basado en si cap abrió
     ui->exitButton->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
 {
+    // ... (sin cambios) ...
     if (cap.isOpened()) {
         cap.release();
     }
@@ -48,11 +55,29 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// --- Implementación de showEvent ---
+void MainWindow::showEvent(QShowEvent *event)
+{
+    // Primero, llamar a la implementación base
+    QMainWindow::showEvent(event);
+
+    // Ahora, verificar si hubo un fallo en la inicialización
+    // y mostrar el mensaje solo si la ventana ya es visible.
+    if (initialCameraFailed) {
+        QMessageBox::critical(this, "Error de Cámara",
+                             QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
+        // Opcional: resetear el flag para que no se muestre en futuros showEvent
+        initialCameraFailed = false;
+    }
+}
+// --- Fin showEvent ---
+
+
 void MainWindow::loadSettings()
 {
-    QSettings settings("HistomergeDev", "HistomergeCameraApp");
+    // ... (sin cambios) ...
+     QSettings settings("HistomergeDev", "HistomergeCameraApp");
     selectedCameraIndex = settings.value("selectedCameraIndex", 0).toInt();
-
     QString loadedPath = settings.value("saveFolderPath").toString();
     if (!loadedPath.isEmpty() && QDir(loadedPath).exists()) {
         saveFolderPath = loadedPath;
@@ -61,49 +86,46 @@ void MainWindow::loadSettings()
         qInfo() << "No se encontró ruta guardada o es inválida. Usando ruta por defecto.";
         setupDefaultSavePath();
     }
-
     selectedFourcc = settings.value("selectedFourcc", cv::VideoWriter::fourcc('M', 'J', 'P', 'G')).toInt();
     selectedExtension = settings.value("selectedExtension", ".avi").toString();
     qInfo() << "Formato cargado - FOURCC:" << selectedFourcc << "Extensión:" << selectedExtension;
 
-    // Cargar Atajos (con defaults si no existen)
-    m_shortcutRecord = settings.value("shortcutRecord", QKeySequence("Ctrl+G")).value<QKeySequence>();
-    m_shortcutStop = settings.value("shortcutStop", QKeySequence("Ctrl+D")).value<QKeySequence>();
-    m_shortcutCapture = settings.value("shortcutCapture", QKeySequence("Ctrl+C")).value<QKeySequence>();
-    qInfo() << "Atajos cargados - Grabar:" << m_shortcutRecord.toString()
-            << "Detener:" << m_shortcutStop.toString()
-            << "Capturar:" << m_shortcutCapture.toString();
+    recordShortcut = settings.value("shortcut_record", QKeySequence("Ctrl+G")).value<QKeySequence>();
+    stopShortcut = settings.value("shortcut_stop", QKeySequence("Ctrl+D")).value<QKeySequence>();
+    captureShortcut = settings.value("shortcut_capture", QKeySequence("Ctrl+C")).value<QKeySequence>();
+    qInfo() << "Atajos cargados - Grabar:" << recordShortcut.toString() << "Detener:" << stopShortcut.toString() << "Capturar:" << captureShortcut.toString();
 }
 
 void MainWindow::saveSettings()
 {
+    // ... (sin cambios) ...
     QSettings settings("HistomergeDev", "HistomergeCameraApp");
     settings.setValue("selectedCameraIndex", selectedCameraIndex);
     settings.setValue("saveFolderPath", saveFolderPath);
     settings.setValue("selectedFourcc", selectedFourcc);
     settings.setValue("selectedExtension", selectedExtension);
-    // Guardar Atajos
-    settings.setValue("shortcutRecord", m_shortcutRecord);
-    settings.setValue("shortcutStop", m_shortcutStop);
-    settings.setValue("shortcutCapture", m_shortcutCapture);
-
+    settings.setValue("shortcut_record", recordShortcut);
+    settings.setValue("shortcut_stop", stopShortcut);
+    settings.setValue("shortcut_capture", captureShortcut);
     qInfo() << "Configuración guardada.";
 }
 
-// Nueva función para aplicar los atajos a los botones
 void MainWindow::applyShortcuts()
 {
-    ui->recordButton->setShortcut(m_shortcutRecord);
-    ui->stopButton->setShortcut(m_shortcutStop);
-    ui->captureButton->setShortcut(m_shortcutCapture);
-    // Opcional: podrías asignar atajos a las QAction del menú también
-    // ui->actionGrabar->setShortcut(m_shortcutRecord); // Si tuvieras acciones para ellos
+    // ... (sin cambios) ...
+    ui->recordButton->setShortcut(recordShortcut);
+    ui->stopButton->setShortcut(stopShortcut);
+    ui->captureButton->setShortcut(captureShortcut);
+    ui->recordButton->setToolTip(QString("Grabar (%1)").arg(recordShortcut.toString(QKeySequence::NativeText)));
+    ui->stopButton->setToolTip(QString("Detener (%1)").arg(stopShortcut.toString(QKeySequence::NativeText)));
+    ui->captureButton->setToolTip(QString("Capturar Frame (%1)").arg(captureShortcut.toString(QKeySequence::NativeText)));
 }
 
 
 void MainWindow::setupDefaultSavePath()
 {
-    QString appDir = QApplication::applicationDirPath();
+    // ... (sin cambios) ...
+     QString appDir = QApplication::applicationDirPath();
     QDir dir(appDir);
     dir.cdUp();
     saveFolderPath = dir.absoluteFilePath("capturas");
@@ -121,6 +143,8 @@ void MainWindow::setupDefaultSavePath()
 
 void MainWindow::initializeCamera()
 {
+    initialCameraFailed = false; // Resetear flag al intentar inicializar
+
     if(cap.isOpened()){
         cap.release();
     }
@@ -136,9 +160,13 @@ void MainWindow::initializeCamera()
     cap.open(selectedCameraIndex, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
-        QMessageBox::critical(this, "Error de Cámara", QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
-        updateButtonStates();
+        // ¡QUITAR el QMessageBox de aquí!
+        // QMessageBox::critical(this, "Error de Cámara", QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
+        qWarning() << "Fallo al abrir cámara índice:" << selectedCameraIndex;
+        initialCameraFailed = true; // <-- ESTABLECER el flag de error
+        updateButtonStates();       // <-- Actualizar botones (los deshabilitará)
     } else {
+        // Configurar cámara si se abrió bien
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
 
@@ -148,15 +176,20 @@ void MainWindow::initializeCamera()
         qInfo() << "Resolución obtenida:" << actualWidth << "x" << actualHeight;
 
         timer->start(30);
+        // El estado de botones se pondrá en updateButtonStates cuando lleguen frames
     }
 }
+
+// ... Resto de las funciones (updateFrame, on_..._clicked, etc.) sin cambios ...
+// Asegúrate de que updateButtonStates se llame donde corresponde (principalmente
+// al final de updateFrame y cuando cambia el estado de grabación/cámara).
 
 void MainWindow::updateFrame()
 {
      if (!cap.isOpened()) {
         frame = cv::Mat();
         flippedFrame = cv::Mat();
-        if (!ui->videoLabel->pixmap(Qt::ReturnByValue).isNull()) {
+         if (!ui->videoLabel->pixmap(Qt::ReturnByValue).isNull()) {
              ui->videoLabel->clear();
         }
         if (isRecording) {
@@ -169,6 +202,9 @@ void MainWindow::updateFrame()
     cap >> frame;
 
     if (frame.empty()) {
+        // Podrías querer limpiar el label si los frames dejan de llegar por un tiempo
+        ui->videoLabel->clear(); // Opcional
+        updateButtonStates(); // Actualizar botones si no hay frames?
         return;
     }
 
@@ -191,19 +227,18 @@ void MainWindow::updateFrame()
     cv::Mat frameRgb;
     cv::cvtColor(frameToDisplay, frameRgb, cv::COLOR_BGR2RGB);
     QImage qtImage(frameRgb.data, frameRgb.cols, frameRgb.rows, frameRgb.step, QImage::Format_RGB888);
-
-    if (!qtImage.isNull()) {
+     if (!qtImage.isNull()) {
         ui->videoLabel->setPixmap(QPixmap::fromImage(qtImage).scaled(ui->videoLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
     updateButtonStates();
 }
 
-
 void MainWindow::on_recordButton_clicked()
 {
     if (isRecording || !cap.isOpened() || flippedFrame.empty()) {
-         QMessageBox::warning(this, "Grabar", "La cámara no está lista o no hay frames válidos.");
+         if (!cap.isOpened()) QMessageBox::warning(this, "Grabar", "La cámara no está abierta.");
+         else if (flippedFrame.empty()) QMessageBox::warning(this, "Grabar", "Esperando frame válido...");
         return;
     }
 
@@ -224,7 +259,21 @@ void MainWindow::on_recordButton_clicked()
     bool opened = writer.open(filename.toStdString(), selectedFourcc, fps, cv::Size(frameWidth, frameHeight));
 
     if (!opened) {
-        QMessageBox::critical(this, "Error de Grabación", QString("No se pudo abrir el archivo para grabar (¿Códec seleccionado compatible e instalado?):\n%1").arg(filename));
+            char fourcc_str[5] = {0};
+            fourcc_str[0] = (selectedFourcc >> 0) & 0xFF;
+            fourcc_str[1] = (selectedFourcc >> 8) & 0xFF;
+            fourcc_str[2] = (selectedFourcc >> 16) & 0xFF;
+            fourcc_str[3] = (selectedFourcc >> 24) & 0xFF;
+            QString fourcc_qstr(fourcc_str);
+
+            QMessageBox::critical(this, "Error de Grabación",
+                QString("No se pudo abrir el archivo para grabar.\n"
+                        "Archivo: %1\n"
+                        "Códec FOURCC: %2 (0x%3)\n"
+                        "¿Códec seleccionado compatible e instalado y accesible para OpenCV?")
+                .arg(filename)
+                .arg(fourcc_qstr)
+                .arg(QString::number(selectedFourcc, 16)));
         return;
     }
 
@@ -288,13 +337,12 @@ void MainWindow::updateButtonStates()
     ui->captureButton->setEnabled(enableActions);
     ui->exitButton->setEnabled(true);
 
+    // Habilitar acciones de menú siempre que la cámara esté abierta? O siempre?
+    // Por ahora las dejamos siempre habilitadas, excepto quizás si la cámara Falla persistentemente.
     ui->actionFormato_de_salida->setEnabled(true);
     ui->actionSeleccionar_camara->setEnabled(true);
     ui->actionSeleccionar_carpeta_de_guardado->setEnabled(true);
-    // Habilitar/deshabilitar nuevas acciones de menú si es necesario
-    ui->actionAtajos_de_teclado->setEnabled(true);
-    ui->actionAcerca_de->setEnabled(true);
-
+    // Podrías deshabilitarlas si !cameraIsOpen en algún punto si lo prefieres.
 }
 
 
@@ -331,7 +379,7 @@ void MainWindow::on_actionSeleccionar_camara_triggered()
         selectedCameraIndex = newIndex;
         qInfo() << "Intentando cambiar al índice de cámara:" << selectedCameraIndex;
         saveSettings();
-        initializeCamera();
+        initializeCamera(); // initializeCamera ahora limpia y reinicia
     }
 }
 
@@ -347,38 +395,17 @@ void MainWindow::on_actionFormato_de_salida_triggered()
     }
 }
 
-// Modificado para manejar el diálogo de atajos configurable
 void MainWindow::on_actionAtajos_de_teclado_triggered()
 {
-    // Crear diálogo pasando los atajos actuales
-    ShortcutsDialog shortcutsDialog(m_shortcutRecord, m_shortcutStop, m_shortcutCapture, this);
+    ShortcutsDialog shortcutsDialog(recordShortcut, stopShortcut, captureShortcut, this);
     if (shortcutsDialog.exec() == QDialog::Accepted) {
-        // Obtener nuevos atajos del diálogo
-        QKeySequence newRecordSeq = shortcutsDialog.getRecordSequence();
-        QKeySequence newStopSeq = shortcutsDialog.getStopSequence();
-        QKeySequence newCaptureSeq = shortcutsDialog.getCaptureSequence();
+        recordShortcut = shortcutsDialog.getRecordSequence();
+        stopShortcut = shortcutsDialog.getStopSequence();
+        captureShortcut = shortcutsDialog.getCaptureSequence();
 
-        // Actualizar si cambiaron
-        bool changed = false;
-        if (newRecordSeq != m_shortcutRecord) {
-            m_shortcutRecord = newRecordSeq;
-            changed = true;
-        }
-        if (newStopSeq != m_shortcutStop) {
-            m_shortcutStop = newStopSeq;
-            changed = true;
-        }
-        if (newCaptureSeq != m_shortcutCapture) {
-            m_shortcutCapture = newCaptureSeq;
-            changed = true;
-        }
-
-        // Si hubo cambios, aplicar y guardar
-        if (changed) {
-            applyShortcuts(); // Aplicar a los botones
-            saveSettings();   // Guardar en configuración
-            qInfo() << "Atajos actualizados.";
-        }
+        qInfo() << "Nuevos atajos guardados.";
+        applyShortcuts();
+        saveSettings();
     }
 }
 

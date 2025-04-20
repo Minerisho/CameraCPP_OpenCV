@@ -6,7 +6,8 @@
 #include <QImage>
 #include <QPixmap>
 #include <QString>
-#include <QKeySequence> // Necesario para atajos
+#include <QKeySequence>
+#include <QShowEvent> // <-- Incluir para QShowEvent
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/videoio.hpp>
@@ -19,7 +20,6 @@ class FormatDialog;
 class ShortcutsDialog;
 class AboutDialog;
 
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,6 +27,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
+
+// Añadir sección protected para sobrescribir eventos
+protected:
+    // Sobrescribir showEvent
+    void showEvent(QShowEvent *event) override;
 
 private slots:
     void updateFrame();
@@ -52,18 +57,19 @@ private:
     int selectedCameraIndex;
     int selectedFourcc;
     QString selectedExtension;
+    QKeySequence recordShortcut;
+    QKeySequence stopShortcut;
+    QKeySequence captureShortcut;
 
-    // NUEVOS: Miembros para guardar los atajos de teclado
-    QKeySequence m_shortcutRecord;
-    QKeySequence m_shortcutStop;
-    QKeySequence m_shortcutCapture;
+    // Nuevo indicador para fallo inicial de cámara
+    bool initialCameraFailed;
 
     void initializeCamera();
     void updateButtonStates();
     void setupDefaultSavePath();
     void loadSettings();
     void saveSettings();
-    void applyShortcuts(); // Nueva función para aplicar atajos
+    void applyShortcuts();
 
 };
 
