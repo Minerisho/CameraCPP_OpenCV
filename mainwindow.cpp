@@ -3,7 +3,6 @@
 #include "formatdialog.h"
 #include "shortcutsdialog.h"
 #include "aboutdialog.h"
-
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QDateTime>
@@ -16,7 +15,7 @@
 #include <QDebug>
 #include <QKeySequence>
 #include <QPushButton>
-#include <QShowEvent> // <-- Incluir para QShowEvent
+#include <QShowEvent> 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,28 +23,20 @@ MainWindow::MainWindow(QWidget *parent) :
     timer(new QTimer(this)),
     isRecording(false),
     selectedCameraIndex(0),
-    initialCameraFailed(false) // Inicializar el nuevo indicador
+    initialCameraFailed(false) 
 {
     ui->setupUi(this);
     ui->videoLabel->setAlignment(Qt::AlignCenter);
-
     loadSettings();
     applyShortcuts();
-
     connect(timer, &QTimer::timeout, this, &MainWindow::updateFrame);
-
-    // Inicializar cámara (ahora no mostrará error aquí)
     initializeCamera();
-
-    // El estado de botones lo maneja initializeCamera y updateFrame
-    // Ya no se establece explícitamente aquí.
-    updateButtonStates(); // Llamada inicial para estado basado en si cap abrió
+    updateButtonStates();
     ui->exitButton->setEnabled(true);
 }
 
 MainWindow::~MainWindow()
 {
-    // ... (sin cambios) ...
     if (cap.isOpened()) {
         cap.release();
     }
@@ -55,27 +46,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// --- Implementación de showEvent ---
 void MainWindow::showEvent(QShowEvent *event)
 {
-    // Primero, llamar a la implementación base
     QMainWindow::showEvent(event);
-
-    // Ahora, verificar si hubo un fallo en la inicialización
-    // y mostrar el mensaje solo si la ventana ya es visible.
     if (initialCameraFailed) {
         QMessageBox::critical(this, "Error de Cámara",
                              QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
-        // Opcional: resetear el flag para que no se muestre en futuros showEvent
         initialCameraFailed = false;
     }
 }
-// --- Fin showEvent ---
+
 
 
 void MainWindow::loadSettings()
 {
-    // ... (sin cambios) ...
      QSettings settings("HistomergeDev", "HistomergeCameraApp");
     selectedCameraIndex = settings.value("selectedCameraIndex", 0).toInt();
     QString loadedPath = settings.value("saveFolderPath").toString();
@@ -98,7 +82,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::saveSettings()
 {
-    // ... (sin cambios) ...
+    
     QSettings settings("HistomergeDev", "HistomergeCameraApp");
     settings.setValue("selectedCameraIndex", selectedCameraIndex);
     settings.setValue("saveFolderPath", saveFolderPath);
@@ -112,7 +96,7 @@ void MainWindow::saveSettings()
 
 void MainWindow::applyShortcuts()
 {
-    // ... (sin cambios) ...
+   
     ui->recordButton->setShortcut(recordShortcut);
     ui->stopButton->setShortcut(stopShortcut);
     ui->captureButton->setShortcut(captureShortcut);
@@ -124,7 +108,7 @@ void MainWindow::applyShortcuts()
 
 void MainWindow::setupDefaultSavePath()
 {
-    // ... (sin cambios) ...
+   
      QString appDir = QApplication::applicationDirPath();
     QDir dir(appDir);
     dir.cdUp();
@@ -143,7 +127,7 @@ void MainWindow::setupDefaultSavePath()
 
 void MainWindow::initializeCamera()
 {
-    initialCameraFailed = false; // Resetear flag al intentar inicializar
+    initialCameraFailed = false;
 
     if(cap.isOpened()){
         cap.release();
@@ -160,13 +144,12 @@ void MainWindow::initializeCamera()
     cap.open(selectedCameraIndex, cv::CAP_ANY);
 
     if (!cap.isOpened()) {
-        // ¡QUITAR el QMessageBox de aquí!
-        // QMessageBox::critical(this, "Error de Cámara", QString("No se pudo abrir la cámara con índice %1.").arg(selectedCameraIndex));
+
         qWarning() << "Fallo al abrir cámara índice:" << selectedCameraIndex;
-        initialCameraFailed = true; // <-- ESTABLECER el flag de error
-        updateButtonStates();       // <-- Actualizar botones (los deshabilitará)
+        initialCameraFailed = true; 
+        updateButtonStates();       
     } else {
-        // Configurar cámara si se abrió bien
+
         cap.set(cv::CAP_PROP_FRAME_WIDTH, 1920.0);
         cap.set(cv::CAP_PROP_FRAME_HEIGHT, 1080.0);
 
@@ -176,13 +159,9 @@ void MainWindow::initializeCamera()
         qInfo() << "Resolución obtenida:" << actualWidth << "x" << actualHeight;
 
         timer->start(30);
-        // El estado de botones se pondrá en updateButtonStates cuando lleguen frames
+        
     }
 }
-
-// ... Resto de las funciones (updateFrame, on_..._clicked, etc.) sin cambios ...
-// Asegúrate de que updateButtonStates se llame donde corresponde (principalmente
-// al final de updateFrame y cuando cambia el estado de grabación/cámara).
 
 void MainWindow::updateFrame()
 {
@@ -202,9 +181,9 @@ void MainWindow::updateFrame()
     cap >> frame;
 
     if (frame.empty()) {
-        // Podrías querer limpiar el label si los frames dejan de llegar por un tiempo
-        ui->videoLabel->clear(); // Opcional
-        updateButtonStates(); // Actualizar botones si no hay frames?
+       
+        ui->videoLabel->clear(); 
+        updateButtonStates(); 
         return;
     }
 
@@ -337,12 +316,11 @@ void MainWindow::updateButtonStates()
     ui->captureButton->setEnabled(enableActions);
     ui->exitButton->setEnabled(true);
 
-    // Habilitar acciones de menú siempre que la cámara esté abierta? O siempre?
-    // Por ahora las dejamos siempre habilitadas, excepto quizás si la cámara Falla persistentemente.
+
     ui->actionFormato_de_salida->setEnabled(true);
     ui->actionSeleccionar_camara->setEnabled(true);
     ui->actionSeleccionar_carpeta_de_guardado->setEnabled(true);
-    // Podrías deshabilitarlas si !cameraIsOpen en algún punto si lo prefieres.
+
 }
 
 

@@ -28,9 +28,7 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override;
 
-// Añadir sección protected para sobrescribir eventos
 protected:
-    // Sobrescribir showEvent
     void showEvent(QShowEvent *event) override;
 
 private slots:
@@ -61,7 +59,6 @@ private:
     QKeySequence stopShortcut;
     QKeySequence captureShortcut;
 
-    // Nuevo indicador para fallo inicial de cámara
     bool initialCameraFailed;
 
     void initializeCamera();
